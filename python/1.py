@@ -1,4 +1,4 @@
-# NOT EFFICIENT YET, USE DYNAMIC PROGRAMMING
+# didn't pass yet, O(n^2) is too slow to pass
 
 # Given an array of integers, find two numsbers such that they add up to a specific target numsber.
 
@@ -13,18 +13,13 @@
 # @param {integer} target
 # @return {integer[]}
 def twoSum(nums, target):
-    forward_ind = 0
-    while forward_ind < len(nums):
-        backward_ind = len(nums) - 1
-        while backward_ind > forward_ind:
-            if nums[forward_ind] + nums[backward_ind] == target:
-                return [forward_ind + 1, backward_ind + 1]
-            backward_ind = backward_ind - 1
-        forward_ind = forward_ind + 1
+    for i in range(0, len(nums)):
+        for j in range(len(nums)-1, i, -1):
+            if nums[i] + nums[j] == target:
+                return [i+1, j+1]
     return
-
-testNums = [4, 1, 7, 6, 12, 673, 23, 1, 6]
-testTarget = 7
+testNums = [0, 1, 4, 12, 5]
+testTarget = 9
 print twoSum(testNums, testTarget)
 
 
