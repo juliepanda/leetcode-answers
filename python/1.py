@@ -14,6 +14,7 @@ class Solution:
     # @param {integer} target
     # @return {integer[]}
     def twoSum(self, nums, target):
+        # assuming unsorted
         for i in range(0, len(nums)-1):
             if nums[i] < target:
                 for j in range(len(nums)-1, i, -1):
