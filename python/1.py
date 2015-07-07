@@ -9,20 +9,18 @@
 # Input: numsbers={2, 7, 11, 15}, target=9
 # Output: index1=1, index2=2
 
-# @param {integer[]} nums
-# @param {integer} target
-# @return {integer[]}
-def twoSum(nums, target):
-    for i in range(0, len(nums)):
-        for j in range(len(nums)-1, i, -1):
-            if nums[i] + nums[j] == target:
-                return [i+1, j+1]
-    return
-testNums = [0, 1, 4, 12, 5]
-testTarget = 9
-print twoSum(testNums, testTarget)
-
-
+class Solution:
+    # @param {integer[]} nums
+    # @param {integer} target
+    # @return {integer[]}
+    def twoSum(self, nums, target):
+        for i in range(0, len(nums)-1):
+            if nums[i] < target:
+                for j in range(len(nums)-1, i, -1):
+                    if nums[j] < target:
+                        if nums[i] + nums[j] == target:
+                            return [i+1, j+1]
+        return
 
 
 
